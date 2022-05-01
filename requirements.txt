@@ -1,0 +1,7 @@
+fastapi==0.75.2
+pytest
+uvicorn
+gunicorn
+opencv-python
+torchgeometry
+pillow
