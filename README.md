@@ -25,17 +25,17 @@ We **cannot share the training code or the collected dataset** due to the commer
 ## 3a. Installation (Docker)
 **Note: make sure that CUDA, driver...(https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html) and nvidia-docker2 (https://github.com/NVIDIA/nvidia-docker) are installed. <br>
 
-Build image:
+Build image: "docker build -t \<image-name>:\<tag> ."
 ```
 docker build -t viton-hd-docker:v1 .
 ```
-Run container with mount volume:
+Run container with mount volume: "docker run --gpus=all --shm-size 4G -v \<full-path-to-local-VITON-HD>:\<path-in-image> -itd viton-hd-docker:v1 bash"
 ```
-docker run --gpus=all --shm-size 4G -v <full-path-to-VITON-HD>:/mnt -itd viton-hd-docker:v1 bash
+docker run --gpus=all --shm-size 4G -v /home/cr7/VITON-HD:/mnt -itd viton-hd-docker:v1 bash
 ```
 Run test:
 ```
-cd
+cd /mnt
 python test.py --name [NAME]
 ```
 ## 3b. Installation (local)
